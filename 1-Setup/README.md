@@ -1,7 +1,7 @@
 # **Lab 1:** _Setting up **Node-RED** and **IBM Watson** on IBM Cloud_
-You can install Node-RED locally on your own computer, on devices such as Raspberry Pis and Arduinos, and in the cloud using services from IBM, Microsoft and Amazon. In this tutorial we will run Node-RED on the **IBM Cloud**. If you want to know more about setting up Node-RED in other environments, go [here](https://nodered.org/docs/getting-started/).
+You can install Node-RED locally on your own computer, on devices such as [Raspberry Pis](https://www.raspberrypi.org/) and [Arduinos](https://www.arduino.cc/), and in the cloud using services from IBM, Microsoft and Amazon. In this tutorial we will run Node-RED on the **IBM Cloud**. If you want to know more about setting up Node-RED in other environments, go [here](https://nodered.org/docs/getting-started/).
 
-After we've installed Node-RED, we'll also setup the IBM Watson AI services that we're going to use in this tutorial.
+After we've installed Node-RED, we'll also use this lab to setup the **IBM Watson** AI services we're going to use in this tutorial.
 
 # Create Node-RED application
 **(1)** Login to [IBM Cloud](https://cloud.ibm.com).
@@ -55,7 +55,7 @@ For the applications we are going to build in this tutorial, we need to access a
 - Watson Visual Recognition
 - Watson Language Translator
 
-**(1)** We therefore need to provision an instance of each of these services. Within **IBM Cloud**, go back to the `Catalog`, select `AI` from the sidebar, and then `Natural Language Understanding`.
+**(1)** We therefore need to provision an instance of each of these services for use by our apps. Within **IBM Cloud**, go back to the `Catalog`, select `AI` from the sidebar, and then `Natural Language Understanding`.
 
 ![](./images/09-nlu.png)
 

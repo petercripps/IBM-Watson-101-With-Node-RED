@@ -1,15 +1,17 @@
 # **Lab 3:** _Analysing a Webpage Using Node-RED and IBM Watson_
-Our next lab will step you through creating a more complex Node-RED flow. When built, the flow will take the content of a webpage that you specify, runs the text content of the page through **Watson Natural Language Understanding**, and send the output of that to the Node-RED debug console.
+Our next lab will step you through creating a more complex Node-RED flow. The flow you build here will take a webpage that you specify, run the text content of the page through **Watson Natural Language Understanding** to extract information (_metadata_) from it and analyse its sentiment and emotional tones, and send the output of that analysis to the Node-RED debug console.
 
 **Watson Natural Language Understanding (NLU)** allows us analyse the semantic features of text by extracting metadata such as concepts, entities, keywords, categories, relations and roles from provided content.
 
 It can also understand sentiment and emotion, and returns both overall sentiment and emotion for a page or document, as well as targeted sentiment and emotion against keywords in the text for deeper analysis. It can do all this in thirteen languages.
 
-NLU can be useful in many scenarios that demand rapid analysis of text without requiring in-depth natural language processing expertise. For example, you could monitor sentiment and emotion in customer support chat transcripts, or you can quickly categorise blog posts and sort them based on general concepts, keywords, and entities.
+NLU can be useful in many scenarios that demand rapid analysis of text without requiring in-depth natural language processing expertise. For example, you could monitor sentiment and emotion in customer support live chat or chatbot transcripts in order to provide better, more tailored responses, or you could use it quickly categorise blog posts and sort them based on general concepts, keywords, and entities.
+
+Accrete.AI used **IBM Watson** NLU to [understand linguistic nuances](https://www.ibm.com/case-studies/accreteai) specific to inflation, employment and other financially relevant topics, to help build a tool that delivers highly accurate investment insights for financial markets investors.
 
 **(1)** Go to your Node-RED application, and we'll start to build up a Node-RED flow that will use **Watson NLU** to analyse text from a web page.
 
-Create a new tab in Node-RED by clicking the `Add tab` icon. This will give us an empty workspace that we can use to create our new flow.
+Create a new tab in Node-RED by clicking the `Add tab` icon. This will give us an empty workspace that we can use to create our new flow (although you can also create more than one flow on a single workspace if you wish).
 
 Note also if you double-click a Node-RED tab heading, you can rename it to something more meaningful.
 
@@ -38,11 +40,11 @@ Messages are compacted in the debug window, as they can be quite long. Select th
 
 ![](./images/05-payload.png)
 
-As you can see, **msg.payload** includes all of the text _plus_ the HTML formatting from the URL we provided.
+As you can see, **msg.payload** includes all of the content from the webpage - the text _plus_ the HTML formatting have been extracted from the URL we provided.
 
 **(4)** Clearly we want to just analyse the **text** from the web page and ignore the formatting content, and we can extract the text by pulling only the content held within each of the `paragraph` or `<p>` tags within the HTML.
 
-If you use **Chrome Developer Tools** whilst on a webpage you can get an idea of how this works:
+If you use **Chrome Developer Tools** whilst on a webpage you can get an idea of how this works. When using the Chrome browser, if you right-click an element on a page and select `Inspect`, you'll see the details of the underlying HTML that is used to present the page you are viewing. You can also access this by pressing `Command+Option+C` (Mac) or `Control+Shift+C` (Windows, Linux, Chrome OS).
 
 ![](./images/06-chromedev.png)
 
@@ -50,21 +52,23 @@ Drop in an `html` node, and modify it's properties to look like this:
 
 ![](./images/07-htmlnode.png)
 
-**(5)** Connect the node up as shown, `Deploy` the flow and hit the `Inject` button. The debug output should this time show a series of separate messages, but where each `msg.payload` contains just a paragraph of text and none of the HTML data.
+This node extracts **only** the information held within `<p>` tags on the webpage, and then **only** the text content from within those. Each paragraph is then passed as a separate message.
+
+**(5)** Connect the `html` node up as shown, `Deploy` the flow and hit the `Inject` button. The debug output should this time show a series of separate messages, but where each `msg.payload` contains just a paragraph of text and none of the HTML data.
 
 ![](./images/08-htmlout.png)
 
-**(6)** This is the data we need to feed through the **Watson NLU** service, but we want to do this as a single article/message, rather than a set of disparate paragraphs. Fortunately Node-RED has a `join` node which can merge all of our messages into one.
+**(6)** This is the data we need to feed through the **Watson NLU** service, but we want to do this as a single article/message, rather than a set of disparate paragraphs. Fortunately Node-RED has a `join` node which can merge all of our now 'clean' messages, into one.
 
-Drop one of these in now. Edit its properties to change `Mode` to **manual**, and then enter **3** in the `After a timeout following the first message` field. The individual paragraph messages will arrive at this node in quick succession, so setting the timeout field ensures we keep collecting and joining these together until a 3 second delay suggests they have stopped arriving.
+Drop one of these in now. Edit its properties to change `Mode` to **manual**, and then enter **3** in the `After a timeout following the first message` field. The individual paragraph messages will arrive at this node in quick succession, so setting the timeout field ensures we keep collecting and joining these together until a 3 second delay suggests they have stopped arriving, and therefore the last one has been sent.
 
 ![](./images/09-join.png)
 
-**(7)** Connect the `join` node in as you can see below. `Deploy` and hit `Inject` again, and you should see just one message, where `msg.payload` consists of _all_ of the extracted text.
+**(7)** Connect the `join` node in as you can see below. `Deploy` and hit `Inject` again, and you now should see just one message, where `msg.payload` consists of _all_ of the extracted text from the webpage.
 
 ![](./images/10-singlemessage.png)
 
-_The content of the single message is purposely truncated in the debug window._
+_Note: the content of the single message is purposely truncated in the debug window._
 
 **(8)** Drop in a `Natural Language Understanding` node, and edit its properties.
 
@@ -84,7 +88,7 @@ Here you can see the overall document sentiment and emotion analysis.
 
 ![](./images/12-results1.png)
 
-If you open up the `entities` section of `msg.features`, you'll see all of the entities that **Watson NLU** has recognised in the text and extracted (there are 46 in this case). As well as being able to identify people, organisations, companies, facilities, etc., **Watson NLU** can provide a sentiment and emotion score for _each entity identified_ within a document. This can highlight not only the overall tone of a document, but the tone attached to individual entities within a document.
+If you open up the `entities` section of `msg.features`, you'll see all of the entities that **Watson NLU** has recognised in the text and extracted (there are 46 in this example). As well as being able to identify people, organisations, companies, facilities, etc. within text, **Watson NLU** can provide a sentiment and emotion score for _each entity identified_ within a document. This can highlight not only the overall tone of a document, but the tone associated with individual entities within a document.
 
 ![](./images/13-results2.png)
 

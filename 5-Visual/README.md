@@ -1,9 +1,11 @@
 # **Lab 5:** _Creating a Visual Recognition Application_
-So now we can build AI applications using IBM Watson and Node-RED dashboarding, let's apply this to another AI use case - visual recognition.
+So now we are able to build AI applications using IBM Watson and Node-RED dashboarding, let's apply this to another AI use case - visual recognition.
 
-The **Watson Visual Recognition** service uses deep learning algorithms to analyse images for scenes, objects, food and other content. A set of built-in classes provides highly accurate results without training, and you can also train custom classifiers and collections using your own images.
+The **Watson Visual Recognition** service uses deep learning algorithms to analyse images for scenes, objects, food and other content. A set of built-in classes provides highly accurate results without training, and you can also train custom classifiers to analyse images and find objects within them.
 
-In this lab are going to build an app that will use the default **Watson Visual Recognition** classifier and the Node-RED visual programming environment to classify any image you select from the internet (identified by its URL), and present the analysis using a dashboard.
+For example, Autoglass® [built a custom classifier](https://www.ibm.com/case-studies/autoglass-bodyrepair) that automatically scrutinises and organises customers’ images of windscreen damage, and uses its findings to determine repair costs, eliminating the need to manually assess customers’ vehicle damage and generate quotes.
+
+In this lab are going to build an app that will use the default **Watson Visual Recognition** classifier and the Node-RED visual programming environment, to classify (identify objects from) any image you select from the internet (identified by its URL), and present the analysis using a dashboard.
 
 This default classifier analyses images and provides a response that includes keywords (classes) that provide information about the image content, as well as confidence levels for each keyword. Our app will allow the user to enter a URL for an image, and pass the image to Watson which will return any classes found, the confidence level, and if it can find one, a class type (or hierarchy). For example, Watson would return a class type of `/fruit/pome/apple/eating apple/Granny Smith` if it sees a Granny Smith apple.
 
@@ -25,9 +27,9 @@ Try a Google Images search to find an image. When you find a suitable one, right
 
 ![](./images/04-injecturl.png)
 
-**(5)** You'll remember from previous labs that `Debug` nodes are used in Node-RED for testing and debugging purposes. In this flow we are going to pass the image URL to **Watson Visual Recognition**, which in turn will provide us with the results of its analysis via a message in JSON format. Connecting a `Debug` node here will allow us to read the message so we can ensure our programming flow is working correctly.
+**(5)** You'll remember from previous labs that `Debug` nodes are used in Node-RED for testing and debugging purposes. In this flow we are going to pass the image URL to **Watson Visual Recognition**, which in turn will provide us with the results of its analysis via a message in [JSON format](https://www.w3schools.com/js/js_json_intro.asp). Connecting a `Debug` node here will again allow us to view the message so we can ensure our programming flow is working correctly.
 
-Double-click the `Debug` node and change the `Output` field so that it outputs the `complete message object` rather than just the default `msg.payload`. This is because we know that the **Watson Visual Recognition** analysis is returned in `msg.result`.
+Double-click the `Debug` node and change the `Output` field so that it outputs the `complete message object` rather than just the default `msg.payload`. This is because the `Visual Recognition` node return the results of its analysis in `msg.result`.
 
 ![](./images/05-debug.png)
 
@@ -35,13 +37,13 @@ Double-click the `Debug` node and change the `Output` field so that it outputs t
 
 ![](./images/06-nodedoc.png)
 
-**(7)** Next, double-click the `Visual Recognition` node, then copy in the `API Key` from the security credentials for the **Watson Visual Recognition** service you saved earlier, and select the service endpoint highlighted below.
+**(7)** Next, double-click the `Visual Recognition` node, and copy in the `API Key` from the security credentials you saved earlier when setting up the **Watson Visual Recognition** service, and also select the `Service Endpoint` highlighted below.
 
 Hit `Done`, connect up your nodes, then `Deploy` your flow:
 
 ![](./images/07-vrconnect.png)
 
-**(8)** Hit the button on the `Inject` node. If your image URL is valid, you should see something like this in the debug panel, where Watson has recognised object classes and hierarchies from the image.
+**(8)** Hit the button on the `Inject` node. If your image URL is valid, you should see something like this in the debug panel, where Watson has recognised objects and object types (_hierarchies_) from the image.
 
 You will need to expand the `result` object a number of times to get to the object classes. The scores here are _confidence levels_ - how confident Watson is that what is being reported is accurate.
 
@@ -57,7 +59,7 @@ On the **Import nodes** window, paste in the code and select `Import`. You shoul
 
 The `Web image` node creates a text input area on our dashboard which will allow us to directly enter an image URL address (rather than using the `Inject` node). The `Analysed image` and `Classes table` nodes are dashboard template nodes - the former simply displays the image we are asking Watson to analyse, and the latter creates a table from the results we receive from **Watson Visual Recognition** in `msg.result`.
 
-**(10)** Next, drop in new `Change`, `HTTP Request`, `base64` and `Function` nodes,
+**(10)** Next, drop in new `Change`, `HTTP Request`, `base64` and `Function` nodes:
 
 ![](./images/10-othernodes.png)
 
@@ -65,7 +67,7 @@ The `Web image` node creates a text input area on our dashboard which will allow
 
 ![](./images/11-changenode.png)
 
-**(12)** Make sure the `HTTP Request` node has a method of `GET`, and that it returns `a binary buffer`. This is because we are getting an image from a webpage this time, rather than text.
+**(12)** Make sure the `HTTP Request` node has a method of `GET`, and that it returns `a binary buffer`. This is because we are getting an **image** from a webpage this time, rather than text.
 
 ![](./images/12-httpnode.png)
 

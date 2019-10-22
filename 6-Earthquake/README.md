@@ -1,9 +1,9 @@
 # **Lab 6:** _Building an Earthquake Mapping Application_
 As we've seen, Node-RED has a great community base, so if you want to use Node-RED to interact with your [Amazon Echo](https://flows.nodered.org/node/node-red-contrib-amazon-echo), [access Google services](https://flows.nodered.org/node/node-red-node-google), [send SMS messages](https://flows.nodered.org/node/node-red-contrib-sms-twilio), [interact with Reddit](https://flows.nodered.org/node/node-red-contrib-node-reddit), or [get photos from Instagram](https://flows.nodered.org/node/node-red-node-instagram), somebody out there has already written Node-RED nodes that you can download and use.
 
-Here, we're going to build an app that takes recent earthquake data from the United States Geological Survey (USGS) website, and highlights recent significant seismic activity on a map.
+Here, we're going to build an app that takes recent raw earthquake data from the United States Geological Survey (USGS) [website](https://www.usgs.gov/), and highlights recent significant seismic activity on a map.
 
-Fortunately, the nodes to produce interactive maps from sets of co-ordinates have already been created - for the details on Node-RED **Worldmap** nodes, click [here](https://flows.nodered.org/node/node-red-contrib-web-worldmap).
+Fortunately, nodes that automatically produce interactive maps from sets of co-ordinates have already been created: **Worldmap** nodes. If you want to understand more about how these work, click [here](https://flows.nodered.org/node/node-red-contrib-web-worldmap).
 
 **(1)** As the **Worldmap** nodes are not present by default in Node-RED, we need to import them.  Add a new tab to your editor and call it `Earthquake`, then use the `burger icon` and select `Manage Palette`.
 
@@ -21,15 +21,15 @@ Modify the Inject node, by renaming it to `Quakes!` Note here that you can also 
 
 ![](./images/03-inject.png)
 
-**(4)** The data we want to retrieve is held at the [USGS website](https://earthquake.usgs.gov). If you look for earthquake data on here, they helpfully provide it in multiple formats. We'll use a real-time feed of every earthquake over the last 24 hours with a strength of over 2.5.
+**(4)** The data we want to retrieve is held at the [USGS earthquake website](https://earthquake.usgs.gov). The USGS helpfully provide seismic activity data in multiple formats - we'll use a real-time feed of data listing every earthquake over the last 24 hours with a strength of over 2.5.
 
 ![](./images/04-usgs.png)
 
-If you click this link it will download the latest earthquake data in spreadsheet format. It looks something like this:
+[This link](https://earthquake.usgs.gov/earthquakes/feed/v1.0/csv.php) will take you to the a page that allows you to download the latest earthquake data in spreadsheet format. The data looks something like this:
 
 ![](./images/05-spreadsheet.png)
 
-**(5)** We're going to use Node-RED to interact with and extract the data fields that we require from this spreadsheet, and plot this real-time seismic activity on a map.
+**(5)** We're going to use Node-RED to extract the data fields that we require from this spreadsheet, and plot this real-time seismic activity on a map.
 
 The full URL for the spreadsheet is https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/2.5_day.csv, so let's plug that into our `HTTP Request` node.
 
@@ -43,13 +43,13 @@ Everything else can be left to default.
 
 ![](./images/07-dataretrieved.png)
 
-You can see here that this is just a text dump of the data from the spreadsheet, so we're going to have to find a way of extracting the information that we need.
+You can see here that this is just a text dump of the data from the spreadsheet, so we're going to have to find a way of extracting and manipulating the information that we need.
 
 **(7)** Drop a `CSV` node into your flow between the `HTTP Request` and the `Debug` nodes, and edit its properties.
 
 This rather useful node can take a spreadsheet file in CSV format as input, and convert it to a data structure that can then be manipulated by other Node-RED nodes or programming languages such as Javascript. _It also works the other way, if you want to convert data to CSV format._
 
-The only change you need to make in the node properties, is to ensure the `first row contains column names` field is **ticked**. If you look back at how the spreadsheet looks (step 5), you'll see that it has column names in the first row, so this option inform the node of this.
+The only change you need to make in the node properties, is to ensure the `first row contains column names` field is **ticked**. If you look back at how the spreadsheet looks (step 5), you'll see that it has column names in the first row, so this option informs the `CSV` node to expect a first row that consists of column names, rather than data.
 
 ![](./images/08-csv.png)
 
@@ -81,11 +81,11 @@ return msg;
 
 This node takes each individual message passed from the `CSV` node, and reformats the data in the way that the `Worldmap` node is expecting it.
 
-For example, the `CSV` node passes the _longitude_ of the earthquake on as `msg.payload.longitude` (_longitude_ being the header extracted from the USGS spreadsheet), and if you look at the [Worldmap documentation](https://flows.nodered.org/node/node-red-contrib-web-worldmap), you'll see that a `Worldmap` node expects to receive a _longitude_ in `msg.payload.lat`.
+For example, the `CSV` node passes the _longitude_ of the earthquake on as `msg.payload.longitude` (_longitude_ being the column name extracted from the USGS spreadsheet), and if you look at the [Worldmap documentation](https://flows.nodered.org/node/node-red-contrib-web-worldmap), you'll see that a `Worldmap` node expects to receive a _longitude_ in `msg.payload.lat`.
 
 There are a few other variables set here, some of which are involved with formatting of the map itself. Go to the [Worldmap documentation](https://flows.nodered.org/node/node-red-contrib-web-worldmap) to see how you can further customise maps, icons, colours, etc.
 
-**(10)** The `Worldmap` node itself doesn't need any customisation here, so go ahead and wire the nodes up, hit `Deploy`, then the `Inject` button.
+**(10)** The `Worldmap` node itself doesn't need any customisation in this instance, so go ahead and wire the nodes up, hit `Deploy`, then the `Inject` button.
 
 ![](./images/11-finalflow.png)
 

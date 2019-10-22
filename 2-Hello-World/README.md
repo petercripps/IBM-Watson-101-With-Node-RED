@@ -1,7 +1,7 @@
 # **Lab 2:** _Hello World!_
 As all good coders know, writing a **"Hello World!"** program is a rite of passage when learning a new programming language, so here is where we start, in order to demonstrate the basics of how Node-RED applications are built.
 
-**(1)** Go back to your Node-RED application. You will probably have to login again, as the app restarted when you previously increased it's available memory.
+**(1)** Go back to your Node-RED application. You will probably have to login again, as the app restarted when you previously increased its available memory.
 
 Node-RED apps are built by creating **flows** - connected "building blocks" (**nodes**) that receive data, perform some sort of transformation on the data received, and then pass it to the next node, until the end result is achieved.
 
@@ -11,15 +11,17 @@ Our "**Hello World!**" app is a simple one. It just needs a node that sends (inj
 
 ![](./images/01-addnodes.png)
 
-**(3)** Now double-click the `Inject` node. It currently displays as `timestamp` in the editor as this is the _default_ data this will be send to the next node.
+**(3)** Now double-click the `Inject` node. It currently displays as `timestamp` in the editor, as the current time is the default data that will be sent to the next node.
 
-Edit the `Properties` of this node.
+Double-clicking on a node allows you to edit its `Properties`.
 
 Change the `Payload` field dropdown from `timestamp` to `string`, type `Hello World!` into the `Payload` field, and click `Done`.
 
 ![](./images/02-inject.png)
 
-**(4)** In this case, the `Debug` node does not need to be modified. By default, a `Debug` node will output whatever data it has in the **payload** section of the **message** it receives (**msg.payload**), and our `Inject` node has been configured to send the "Hello World!" text string in this way.
+This means that we will now send the text string "**Hello World!**" to any node connected to this one.
+
+**(4)** The `Debug` node does not need to be modified for this simple Node-RED flow. By default, a `Debug` node will output whatever data it has in the **payload** section of the **message** it receives (you'll see it referred to as **msg.payload**), and our `Inject` node has been configured to send the "Hello World!" text string in this way.
 
 Simply connect up the nodes now to complete your first Node-RED flow. _Click and hold_ the small grey box on the right-hand side of the `Inject` node, and _drag_ to the small grey box on the left-hand side of `Debug` node.
 
@@ -29,7 +31,7 @@ Once your nodes are connected, hit `Deploy` to send your code up to the IBM Clou
 
 You'll see a `Successfully deployed` message, and now you can run your program!
 
-**(5)** First click the small `Debug messages` icon at the top left. This is where we will always see the output from our Debug nodes.
+**(5)** First click the small `Debug messages` icon at the top left. This is where we see the output from Node-RED Debug nodes.
 
 Next, click the button to the left of the `Inject` node to instigate the sending of the "Hello World!" message.
 
@@ -45,19 +47,19 @@ Drag a `language translator` node onto the workspace. You can find this node eit
 
 ![](./images/05-translator.png)
 
-**(7)** Double-click the `language translator` node to edit it's properties.
+**(7)** Double-click the `language translator` node to edit its properties.
 
-First, go to wherever you previously stored your IBM Watson service security credentials, and copy the API key for the **Language Translator** services into the `API Key` field.
+First, go to wherever you previously stored your **IBM Watson** service _security credentials_, and copy the API key for the **Language Translator** services into the `API Key` field of the `language translator` node properties.
 
 Next, untick `Use Default Service Endpoint`, and copy the URL you previously saved from the **Language Translator** service into the `Service Endpoint` field. Now hit `Done`.
 
 ![](./images/06-properties1.png)
 
-Doing this provides Node-RED with the security credentials it needs to be able to access the relevant service. In this case, we will be sending some text to Watson Language Translator, and it will return some translated text.
+Doing this provides Node-RED with the security credentials it needs to be able to access the relevant service. In this case, we will be sending some text to the Watson Language Translator service, and it will return some translated text.
 
-**(8)** When you click `Done`, go back into the `language translator` node properties again. Now you will see more options available.
+**(8)** After you have clicked `Done`, go back into the `language translator` node properties again, where you will see that more options are now available.
 
-Change the `Target` field to Spanish and hit `Done`.
+Change the `Target` field to `Spanish` and hit `Done`.
 
 ![](./images/07-properties2.png)
 
@@ -75,7 +77,9 @@ You can do this in two ways:
 
 Either way should give the same result.
 
-**(10)** Finally click the button to the left of the `Inject` node again to run the flow. This time the "Hello World!" string is injected into the Watson `language translator` node, and translated into Spanish before being sent to the `Debug` node for output.
+Once the nodes are connected in this way, hit `Deploy`.
+
+**(10)** Now click the button to the left of the `Inject` node again to run the flow. This time the "Hello World!" string is injected into the **IBM Watson** `language translator` node, and translated into Spanish before being sent to the `Debug` node for output.
 
 ![](./images/10-run.png)
 

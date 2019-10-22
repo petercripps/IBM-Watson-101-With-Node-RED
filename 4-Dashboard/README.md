@@ -1,7 +1,7 @@
 # **Lab 4:** _Building an IBM Watson Text Analytics Dashboard_
 The last lab was a great example of how you can use flow-based programming to transform unstructured data into some really useful outputs, that could be used in many different use cases.
 
-You'll probably agree though, that the way the results are presented is not the most elegant! So, in this lab, we'll take the results from the **Watson NLU** analysis, and we'll build a live dashboard to display the results. We'll also design the dashboard to allow the user to input data directly, and we'll do all this using just Node-RED components again!
+You'll probably agree though, that the way the results were presented  wasn't particularly elegant! So, in this lab, we'll take the results from the **Watson NLU** analysis, and we'll build a live dashboard to display the results. We'll also design the dashboard to allow the user to input data directly (so we don't have to update the flow when we want to analyse a different webpage), and we'll do all this once more using just Node-RED components.
 
 **(1)** Node-RED doesn't have built-in capabilities to create dashboards, but here's the first time that helpful open source community-driven support kicks in!
 
@@ -29,13 +29,13 @@ Copy the contents of [this file](./code/nlu-dashboard.json), then go to yout Nod
 
 ![](./images/04-pastecode.png)
 
-**(4)** Five new nodes will then appear in the editor, which you can move around the workspace with your mouse. When you hit the mouse button, they will be positioned in the editor like this:
+**(4)** Five new nodes will then appear in the editor, which you can move around the workspace with your mouse. When you click the mouse button, they will be positioned in the editor like this:
 
 ![](./images/05-newnodes.png)
 
 - The `Source Text` and `Web address` nodes are dashboard `text input` nodes that allows a user to enter either some raw text to be analysed by **Watson NLU**, or a web page to be processed then analysed as we saw in Lab 3.
 
-- The `Text` node is a dashboard `text` widget that simply displays the first 500 characters of the text that is being analysed. If you double-click the node you'll see how this works - in the `Value format` field you can see:
+- The `Text` node is a dashboard `text` widget that simply displays the first 500 characters of the text that is passed to it. If you double-click the node you'll see how this works - in the `Value format` field you can see:
 
   `{{msg.payload | limitTo: 500}}.....`
 
@@ -57,7 +57,7 @@ If you can't see all of your nodes on the screen at once, you can use the Node-R
 
 ![](./images/08-change.png)
 
-**(7)** Now go into the `http request` node and blank out the URL field, as we will be passing this via the `Web address` field in the dashboard.
+**(7)** Now go into the `http request` node and blank out the URL field, as we now want to pass the URL to analyse via the `Web address` field in the dashboard.
 
 ![](./images/09-blankurl.png)
 
@@ -127,7 +127,7 @@ Now `Deploy`!
 
 ![](./images/14-dashlink.png)
 
-**(13)** Test your new application by entering some text or a web URL. The analysis will take a few seconds, and you'll then see output that looks something like these:
+**(13)** Test your new application by entering some text or a web URL. The analysis will take a few seconds, and you'll then see output that looks something like this:
 
 ![](./images/15-testtext.png)
 
@@ -136,6 +136,6 @@ Now `Deploy`!
 The NLU **emotion** feature detects anger, disgust, fear, joy, and sadness implied in text. A score of 0 means the text does not convey the emotion; 1 means the text definitely carries the emotion.
 
 The **entities** feature helps you identify people, cities, organisations, and many other types of entities in your text. It returns items such as persons, places, and organisations that
-are present in the input text. The **sentiment** feature identifies attitude, opinions, or feelings in the content that is being analysed. Here we are analysing the sentiment around our extracted entities.
+are present in the input text. The **sentiment** feature identifies attitude, opinions, or feelings in the content that is being analysed. Here we are analysing the sentiment _around_ our extracted entities.
 
 **Pretty cool, huh? Now you've built a live application that uses IBM Watson to analyse and classify text from user input or a webpage. Next, we'll use the same dashboarding techniques, but this time we'll apply them to a different AI use case - visual recognition. Click [here](../5-Visual) to go to Lab 5.**
