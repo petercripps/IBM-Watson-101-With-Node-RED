@@ -37,7 +37,7 @@ Change the default group names from:
 Add a `text input` node to allow the user to enter some text to be translated. Double-click to edit the node, and change:
 - Group --> `[Translator] Source`
 - Size --> `6x2`
-- Label --> `Enter text to translated`
+- Label --> `Enter text to translate`
 - Delay (ms) --> `0`
 
 ![](./images/06-textinput.png)
