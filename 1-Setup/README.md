@@ -4,27 +4,63 @@ You can install Node-RED locally on your own computer, on devices such as [Raspb
 After we've installed Node-RED, we'll also use this lab to setup the **IBM Watson** AI services we're going to use in this tutorial.
 
 # Create Node-RED application
-**(1)** Login to [IBM Cloud](https://cloud.ibm.com).
+**(1)** Login to [IBM Cloud](https://cloud.ibm.com) and click on `Catalog` in the menu bar.
 
-**(2)** Click on `Catalog`, `Starter Kits`, and `Node-RED Starter`.
+![](./images/ibmcloud-001.png)
 
-![](./images/01-catalog.png)
+**(2)** Search on 'node-red'.
 
-**(3)** Scroll down to `App name`. Here you need to enter a unique name for your Node-RED instance, for example **Node-RED-_yourinitials_**. Then hit `Create`.
+![](./images/ibmcloud-002.png)
 
-![](./images/02-nodered.png)
+**(3)** Select 'Node-RED App' from the drop down list.
 
-**(4)** In a few moments time you'll be transported to the `Getting Started` screen for your Node-RED application, where you'll see the status of `Starting`.
+![](./images/ibmcloud-003.png)
 
-What is happening here is that IBM Cloud is creating all of the resources you need to run your own instance of Node-RED - it's allocating physical infrastructure, creating a database to store your Node-RED programs, deploying the Node-RED application code, and publishing it to a publicly available website so that you can access it in a web browser.
+**(4)** When the 'Node-RED App' screen appears select the 'Create' tab.
 
-![](./images/03-starting.png)
+![](./images/ibmcloud-004.png)
 
-**(5)** A few minutes later, you should see the status change to `Running`. This means your Node-RED environment is available. Access it now by selecting `Visit App URL`.
+**(5)** Select 'London' in the 'Region' field.
 
-![](./images/04-running.png)
+![](./images/ibmcloud-005.png)
 
-**(6)** The first time you log on to your new Node-RED application, you'll have to do small amount of configuration.
+**(6)** Wait for a short while until the application is ready to deploy.
+
+![](./images/ibmcloud-006.png)
+
+**(7)** Select the 'Deploy your app' button when it is enabled.
+
+![](./images/ibmcloud-007.png)
+
+**(8)** Create a Cloud API Key by selectin 'New' next to the highlighted field.
+
+![](./images/ibmcloud-008.png)
+
+**(9)** Create a new API key with full access by selecting 'Ok'.
+
+![](./images/ibmcloud-009.png)
+
+**(10)** Select 'Cloud Foundry' for the 'Deployment target' then 'Next'.
+
+![](./images/ibmcloud-010.png)
+
+**(11)** In the 'Configure the DevOps toolchain screen select 'Create'.
+
+![](./images/ibmcloud-011.png)
+
+**(12)** Wait for the DevOps toolchain to deploy.
+
+![](./images/ibmcloud-012.png)
+
+**(13)** Once the DevOps toolchain is deployed the status will change to 'Success'.
+
+![](./images/ibmcloud-013.png)
+
+**(14)** Select the 'App URL' to launch Node-RED (refresh the screen if this does not automatically appear).
+
+![](./images/ibmcloud-014.png)
+
+**(15)** The first time you log on to your new Node-RED application, you'll have to do small amount of configuration.
 
 On the first Welcome screen, hit `Next`.
 
@@ -32,15 +68,15 @@ On the next `Secure your Node-RED editor` screen, enter a `Username` and `Passwo
 
 ![](./images/05-secure.png)
 
-**(7)** On the `Browse available IBM Cloud nodes screen`, you can click `Next`. This is an informational screen which highlights the fact that Node-RED is an open source application that is supported by a user community. Node-RED comes pre-installed with a number of "building blocks" (nodes) that allow you to build applications, but the community also contributes additional capability by providing more nodes that you can import and use. You'll see how this works during this tutorial, but for more information, you can go [here](https://flows.nodered.org/).
+**(16)** On the `Browse available IBM Cloud nodes screen`, you can click `Next`. This is an informational screen which highlights the fact that Node-RED is an open source application that is supported by a user community. Node-RED comes pre-installed with a number of "building blocks" (nodes) that allow you to build applications, but the community also contributes additional capability by providing more nodes that you can import and use. You'll see how this works during this tutorial, but for more information, you can go [here](https://flows.nodered.org/).
 
 Now click `Finish` on the `Finish the install` screen.
 
-**(8)** After a few moments, you'll see the Node-RED welcome screen. Click `Go to your Node-RED flow editor`, login with the username and password you've just specified, and you'll be taken to your new Node-RED environment.
+**(17)** After a few moments, you'll see the Node-RED welcome screen. Click `Go to your Node-RED flow editor`, login with the username and password you've just specified, and you'll be taken to your new Node-RED environment.
 
 ![](./images/07-blanknr.png)
 
-**(9)** Congratulations! You can now start to build applications using Node-RED's visual editor. However ... we do need to do a few more things before we can really get started.
+**(18)** Congratulations! You can now start to build applications using Node-RED's visual editor. However ... we do need to do a few more things before we can really get started.
 
 Start by increasing the amount of memory that your Node-RED application has allocated: go back to **IBM Cloud**, select `Overview` from the sidebar, and then increase `MB MEMORY PER INSTANCE` to **512**, before hitting `Save`.
 
