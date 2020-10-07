@@ -3,7 +3,7 @@ You can install Node-RED locally on your own computer, on devices such as [Raspb
 
 After we've installed Node-RED, we'll also use this lab to setup the **IBM Watson** AI services we're going to use in this tutorial.
 
-# Part 1: Create Node-RED application
+## Part 1: Create Node-RED application
 **(1)** Login to [IBM Cloud](https://cloud.ibm.com) and click on `Catalog` in the menu bar.
 
 ![](./images/ibmcloud-001.png)
@@ -84,7 +84,7 @@ Start by increasing the amount of memory that your Node-RED application has allo
 
 Your Node-RED instance will then automatically restart with more memory allocated.
 
-# Part 2: Create IBM Watson services
+## Part 2: Create IBM Watson services
 For the applications we are going to build in this tutorial, we need to access and use some of IBM Watson's AI services. Watson has a number of these services, but we are going to use just three of them here:
 
 - Watson Natural Language Understanding
