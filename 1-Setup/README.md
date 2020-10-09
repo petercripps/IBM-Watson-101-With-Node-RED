@@ -40,7 +40,7 @@ After we've installed Node-RED, we'll also use this lab to setup the **IBM Watso
 
 ![](./images/ibmcloud-009.png)
 
-**(10)** Select 'Cloud Foundry' for the 'Deployment target' then 'Next'.
+**(10)** Select `Cloud Foundry` for the `Deployment target` then `Next`.
 
 ![](./images/ibmcloud-010.png)
 
@@ -48,7 +48,7 @@ After we've installed Node-RED, we'll also use this lab to setup the **IBM Watso
 
 ![](./images/ibmcloud-011.png)
 
-**(12)** Wait for the DevOps toolchain to deploy.
+**(12)** Wait for the `DevOps toolchain` to deploy.
 
 ![](./images/ibmcloud-012.png)
 
