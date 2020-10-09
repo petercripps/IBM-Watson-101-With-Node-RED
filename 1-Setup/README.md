@@ -68,11 +68,11 @@ After we've installed Node-RED, we'll also use this lab to setup the **IBM Watso
 
 ![](./images/ibmcloud-016.png)
 
-**(17)** Answer `Next` to he next couple of questions and be presented with the `Node-RED on IBM CLoud` screen. Click on `Go to your Node-RED editor`.
+**(17)** Answer `Next` to the next couple of questions and finally `Finish` and after a few seconds you'll be presented with the `Node-RED on IBM CLoud` screen. Click on `Go to your Node-RED editor`.
 
 ![](./images/ibmcloud-017.png)
 
-**(18)** After a few moments, you'll see the Node-RED welcome screen. Click `Go to your Node-RED flow editor`, login with the username and password you've just specified, and you'll be taken to your new Node-RED environment.
+**(18)** After a few moments, you'll see the Node-RED welcome screen. Login with the username and password you've just specified, and you'll be taken to your new Node-RED environment.
 
 ![](./images/ibmcloud-018.png)
 
