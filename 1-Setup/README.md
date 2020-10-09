@@ -52,7 +52,7 @@ After we've installed Node-RED, we'll also use this lab to setup the **IBM Watso
 
 ![](./images/ibmcloud-012.png)
 
-**(13)** Once the DevOps toolchain is deployed the status will change to `Success`.
+**(13)** Once the DevOps toolchain is deployed the status will change to `Success`. This can take several minutes so be patient!
 
 ![](./images/ibmcloud-013.png)
 
