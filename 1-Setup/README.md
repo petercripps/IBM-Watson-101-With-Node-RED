@@ -32,7 +32,7 @@ After we've installed Node-RED, we'll also use this lab to setup the **IBM Watso
 
 ![](./images/ibmcloud-007.png)
 
-**(8)** Create a Cloud API Key by selectin `New` next to the highlighted field.
+**(8)** Create a Cloud API Key by selecting `New` next to the highlighted field.
 
 ![](./images/ibmcloud-008.png)
 
@@ -56,7 +56,7 @@ After we've installed Node-RED, we'll also use this lab to setup the **IBM Watso
 
 ![](./images/ibmcloud-013.png)
 
-**(14)** Select the `App URL` to launch Node-RED (refresh the screen if this does not automatically appear).
+**(14)** Select the `App URL` to launch Node-RED (refresh the screen if this does not automatically appear). This will be something like https://node-red-effur-2020-09-09.mybluemix.net
 
 ![](./images/ibmcloud-014.png)
 
