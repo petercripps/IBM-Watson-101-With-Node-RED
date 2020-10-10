@@ -76,7 +76,7 @@ After we've installed Node-RED, we'll also use this lab to setup the **IBM Watso
 
 ![](./images/ibmcloud-018.png)
 
-**(19)** Congratulations! You can now start to build applications using Node-RED's visual editor. If at any time you want to find your Node-RED environment again (i.e. after logging out and back in. First go to the `Dashboard` view in IBM Cloud.
+**(19)** Congratulations! You can now start to build applications using Node-RED's visual editor. If at any time you want to find your Node-RED environment again (i.e. after logging out and back in). First go to the `Dashboard` view in IBM Cloud.
 
 ![](./images/ibmcloud-019.png)
 
@@ -84,7 +84,7 @@ After we've installed Node-RED, we'll also use this lab to setup the **IBM Watso
 
 ![](./images/ibmcloud-020.png)
 
-**(21)** Finally click on `Visit App URL` highlighted below.
+**(21)** Finally click on `Visit App URL` highlighted below. Node-RED will open and ask you to login with the `Username` and `Password` you entered in step 16.
 
 ![](./images/ibmcloud-021.png)
 
