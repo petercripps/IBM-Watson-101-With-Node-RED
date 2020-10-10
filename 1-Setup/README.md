@@ -48,15 +48,15 @@ After we've installed Node-RED, we'll also use this lab to setup the **IBM Watso
 
 ![](./images/ibmcloud-011.png)
 
-**(12)** Wait for the `DevOps toolchain` to deploy, this will take a few seconds.
+**(12)** Wait for the `DevOps toolchain` to deploy, this can take several minutes so be patient!
 
 ![](./images/ibmcloud-012.png)
 
-**(13)** Once the DevOps toolchain is deployed the status will change from `In progress` to `Success`. This can take several minutes so be patient!
+**(13)** Once the DevOps toolchain is deployed the status will change from `In progress` to `Success`. If this seems to be taking a while try refreshing the page. 
 
 ![](./images/ibmcloud-013.png)
 
-**(14)** Select the `App URL` to launch Node-RED (refresh the screen if this does not automatically appear). This will be something like https://node-red-effur-2020-09-09.mybluemix.net
+**(14)** Select the `App URL` to launch Node-RED (again, refresh the page if this does not automatically appear). This will be something like https://node-red-effur-2020-09-09.mybluemix.net
 
 ![](./images/ibmcloud-014.png)
 
