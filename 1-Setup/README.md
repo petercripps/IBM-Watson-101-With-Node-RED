@@ -40,19 +40,19 @@ After we've installed Node-RED, we'll also use this lab to setup the **IBM Watso
 
 ![](./images/ibmcloud-009.png)
 
-**(10)** Select `Cloud Foundry` for the `Deployment target` then `Next`.
+**(10)** Select `Cloud Foundry` for the `Deployment target` then `Next`. Make sure `Region` is the same as the region selected in Step 5 (i.e. `London`).
 
 ![](./images/ibmcloud-010.png)
 
-**(11)** In the `Configure the DevOps toolchain` screen select `Create`.
+**(11)** In the `Configure the DevOps toolchain` screen make sure `Region` is the same as the region selected in Step 5 (i.e. `London`) then select `Create`. 
 
 ![](./images/ibmcloud-011.png)
 
-**(12)** Wait for the `DevOps toolchain` to deploy.
+**(12)** Wait for the `DevOps toolchain` to deploy, this will take a few seconds.
 
 ![](./images/ibmcloud-012.png)
 
-**(13)** Once the DevOps toolchain is deployed the status will change to `Success`. This can take several minutes so be patient!
+**(13)** Once the DevOps toolchain is deployed the status will change from `In progress` to `Success`. This can take several minutes so be patient!
 
 ![](./images/ibmcloud-013.png)
 
