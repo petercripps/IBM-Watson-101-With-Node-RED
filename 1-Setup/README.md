@@ -40,7 +40,7 @@ After we've installed Node-RED, we'll also use this lab to setup the **IBM Watso
 
 ![](./images/ibmcloud-009.png)
 
-**(10)** Select `Cloud Foundry` for the `Deployment target` then `Next`. Make sure `Region` is the same as the region selected in Step 5 (i.e. `London`).
+**(10)** Select `Cloud Foundry` for the `Deployment target`. If `Organization` does not appear pre-populated try changing `Region` to be the same as the region selected in Step 5 (i.e. `London`). Select `Next`. 
 
 ![](./images/ibmcloud-010.png)
 
