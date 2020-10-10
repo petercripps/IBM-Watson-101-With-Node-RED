@@ -95,15 +95,15 @@ For the applications we are going to build in this tutorial, we need to access a
 - Watson Visual Recognition
 - Watson Language Translator
 
-**(1)** We therefore need to provision an instance of each of these services for use by our apps. Within **IBM Cloud**, go back to the `Catalog`, select `AI` from the sidebar, and then `Natural Language Understanding`.
+**(1)** We therefore need to provision an instance of each of these services for use by our apps. Within **IBM Cloud**, go back to the `Catalog`, search on `Natural Language Understanding`.
 
-![](./images/09-nlu.png)
+![](./images/ibmcloud-022.png)
 
 **(2)** On the next screen you can leave everything to the defaults, and hit `Create` to spin up your **Natural Language Understanding** (NLU) service.
 
 _If you want to you can scroll down and change the `Service name` before you hit `Create`, but this isn't really necessary._
 
-![](./images/10-nlu2.png)
+![](./images/ibmcloud-023.png)
 
 **(3)** You'll now be taken to a `Getting Started` page for your NLU service. From here, click `Manage` on the sidebar and you'll see the services **security credentials**.
 
@@ -111,7 +111,7 @@ Each of the IBM Watson services you create has associated  **credentials** - thi
 
 Click the `Copy to clipboard` icon to the right of the `API Key` field to copy the key, and then paste this in a document or note somewhere, then do the same with the `URL`. We'll need these later on when we're building our Node-RED apps.
 
-![](./images/11-nlucreds.png)
+![](./images/ibmcloud-024.png)
 
 **(4)** Now repeat this process to create both **Visual Recognition** and **Language Translator** services: select `Catalog`, then `AI` from the sidebar, click the respective service, then `Create` on the next screen.
 
