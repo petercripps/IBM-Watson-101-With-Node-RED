@@ -113,7 +113,7 @@ Click the `Copy to clipboard` icon to the right of the `API Key` field to copy t
 
 ![](./images/ibmcloud-024.png)
 
-**(4)** Now repeat this process to create both **Visual Recognition** and **Language Translator** services: select `Catalog`, then `AI` from the sidebar, click the respective service, then `Create` on the next screen.
+**(4)** Now repeat this process to create the **Language Translator** service: select `Catalog`, then `AI` from the sidebar, click the respective service, then `Create` on the next screen.
 
 Don't forget to save the security credentials for these two additional services too!
 
