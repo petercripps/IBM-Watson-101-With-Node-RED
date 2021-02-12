@@ -17,7 +17,6 @@ In the course of this tutorial, you will:
 - create a **"Hello World!"** application
 - build an application to **analyse the text from a webpage**
 - create a live, publicly available dashboard application that uses IBM Watson to **analyse the sentiment of a news or other internet article**
-- setup an AI-based **image recognition** dashboard application that can classify the objects in a given image
 - import earthquake data from a third party source, and use it to **automatically map recent seismic activity**
 - build an application to recognise languages and perform **translations**
 
@@ -31,6 +30,5 @@ The materials for each part of the tutorial are contained in the subfolders READ
 * [Watson-101 Lab 2: Hello World!](./2-Hello-World)
 * [Watson-101 Lab 3: Analysing a Webpage Using Node-RED and IBM Watson](./3-NLU)
 * [Watson-101 Lab 4: Building an IBM Watson Text Analytics Dashboard](./4-Dashboard)
-* [Watson-101 Lab 5: Creating a Visual Recognition Application](./5-Visual)
 * [Watson-101 Lab 6: Building an Earthquake Mapping Application](./6-Earthquake)
 * [Watson-101 Lab 7: Constructing a Language Translation App](./7-Translation)
