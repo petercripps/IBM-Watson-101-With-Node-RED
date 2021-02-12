@@ -114,6 +114,6 @@ Click the `Copy to clipboard` icon to the right of the `API Key` field to copy t
 
 **(4)** Now repeat this process to create the **Language Translator** service: select `Catalog`, then `AI` from the sidebar, click the respective service, then `Create` on the next screen.
 
-Don't forget to save the security credentials for these two additional services too!
+Don't forget to save the security credentials for thise additional service too!
 
 **OK that's setup done! Let's move onto creating our first Node-RED application. Click [here](../2-Hello-World) to go to Lab 2.**
