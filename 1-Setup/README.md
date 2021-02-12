@@ -89,10 +89,9 @@ After we've installed Node-RED, we'll also use this lab to setup the **IBM Watso
 ![](./images/ibmcloud-021.png)
 
 ## Part 2: Create IBM Watson services
-For the applications we are going to build in this tutorial, we need to access and use some of IBM Watson's AI services. Watson has a number of these services, but we are going to use just three of them here:
+For the applications we are going to build in this tutorial, we need to access and use some of IBM Watson's AI services. Watson has a number of these services, but we are going to use just two of them here:
 
 - Watson Natural Language Understanding
-- Watson Visual Recognition
 - Watson Language Translator
 
 **(1)** We therefore need to provision an instance of each of these services for use by our apps. Within **IBM Cloud**, go back to the `Catalog`, search on `Natural Language Understanding`.
